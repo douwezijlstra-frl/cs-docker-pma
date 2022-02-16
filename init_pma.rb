@@ -5,6 +5,7 @@ require 'timeout'
 require 'erb'
 
 begin
+  puts "Loading Metadata..."
   metadata = Timeout::timeout(5) do
     Oj.load HTTP.auth("Bearer #{ENV['METADATA_AUTH']}").get("#{ENV['METADATA_URL']}").body
   end
@@ -38,6 +39,7 @@ EOF
 
   pma_conf_file = ERB.new pma_conf, nil, '-'
 
+  puts "Writing phpMyAdmin config file..."
   File.open('/var/www/html/default/config.inc.php', 'w') do |f|
     f.write pma_conf_file.result(binding)
   end
