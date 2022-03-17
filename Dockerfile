@@ -1,6 +1,10 @@
-FROM cmptstks/php:7.4-litespeed
+FROM cr.cmptstks.com/cs-public/images/php:7.4-litespeed
 
 LABEL maintainer="ComputeStacks <hello@computestacks.com>"
+LABEL org.opencontainers.image.authors="https://computestacks.com"
+LABEL org.opencontainers.image.source="https://git.cmptstks.com/cs-public/images/phpmyadmin/"
+LABEL org.opencontainers.image.url="https://git.cmptstks.com/cs-public/images/phpmyadmin/"
+LABEL org.opencontainers.image.title="phpMyAdmin"
 
 ENV PMA_VERSION 5.1.3
 ENV PMA_HASH ac68dedf02f94b85138d6ac91cd21389b819c506767004883b52dabdf9b576df
@@ -26,7 +30,7 @@ RUN set -ex; \
     && mv phpMyAdmin* pma \
     ; \
     sed -i 's/memory_limit = .*/memory_limit = 256M/g' /usr/src/lsws/lsphp74/etc/php/7.4/litespeed/php.ini \
-    && sed -i 's/upload_max_filesize = .*/upload_max_filesize = 1024M/g' /usr/src/lsws/lsphp74/etc/php/7.4/litespeed/php.ini \
-    && echo "post_max_size = 1200M" >> /usr/src/lsws/lsphp74/etc/php/7.4/litespeed/php.ini \
+    && sed -i 's/upload_max_filesize = .*/upload_max_filesize = 20004M/g' /usr/src/lsws/lsphp74/etc/php/7.4/litespeed/php.ini \
+    && echo "post_max_size = 2000M" >> /usr/src/lsws/lsphp74/etc/php/7.4/litespeed/php.ini \
     ; \
     chmod +x /etc/my_init.d/05-pma-startup.sh
