@@ -10,7 +10,7 @@ ENV PMA_VERSION 5.1.3
 ENV PMA_HASH ac68dedf02f94b85138d6ac91cd21389b819c506767004883b52dabdf9b576df
 
 COPY init_pma.rb /usr/local/bin/
-COPY 05-pma-startup.sh /etc/my_init.d/
+COPY 51-pma-startup.sh /etc/my_init.d/
 
 RUN set -ex; \
     \
@@ -30,7 +30,7 @@ RUN set -ex; \
     && mv phpMyAdmin* pma \
     ; \
     sed -i 's/memory_limit = .*/memory_limit = 256M/g' /usr/src/lsws/lsphp74/etc/php/7.4/litespeed/php.ini \
-    && sed -i 's/upload_max_filesize = .*/upload_max_filesize = 20004M/g' /usr/src/lsws/lsphp74/etc/php/7.4/litespeed/php.ini \
+    && sed -i 's/upload_max_filesize = .*/upload_max_filesize = 2000M/g' /usr/src/lsws/lsphp74/etc/php/7.4/litespeed/php.ini \
     && echo "post_max_size = 2000M" >> /usr/src/lsws/lsphp74/etc/php/7.4/litespeed/php.ini \
     ; \
-    chmod +x /etc/my_init.d/05-pma-startup.sh
+    chmod +x /etc/my_init.d/51-pma-startup.sh
