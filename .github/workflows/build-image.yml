@@ -49,7 +49,7 @@ jobs:
           tags: |
             cmptstks/phpmyadmin:v2
             cmptstks/phpmyadmin:latest
-            ghcr.io/${{ github.repository }}:v2
-            ghcr.io/${{ github.repository }}:latest
+            ghcr.io/${{ github.repository.lowercase }}:v2
+            ghcr.io/${{ github.repository.lowercase }}:latest
           cache-from: type=gha
           cache-to: type=gha,mode=max
