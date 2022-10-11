@@ -53,7 +53,7 @@ jobs:
           tags: |
             cmptstks/phpmyadmin:v2
             cmptstks/phpmyadmin:latest
-            ghcr.io/${{ GH_REPO }}:v2
-            ghcr.io/${{ GH_REPO }}:latest
+            ghcr.io/${{ env.GH_REPO }}:v2
+            ghcr.io/${{ env.GH_REPO }}:latest
           cache-from: type=gha
           cache-to: type=gha,mode=max
