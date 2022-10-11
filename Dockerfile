@@ -1,9 +1,9 @@
-FROM cscr.cc/cs-public/images/php:7.4-litespeed
+FROM ghcr.io/computestacks/cs-docker-php:7.4-litespeed
 
 LABEL maintainer="ComputeStacks <hello@computestacks.com>"
 LABEL org.opencontainers.image.authors="https://computestacks.com"
-LABEL org.opencontainers.image.source="https://git.cmptstks.com/cs-public/images/phpmyadmin/"
-LABEL org.opencontainers.image.url="https://git.cmptstks.com/cs-public/images/phpmyadmin/"
+LABEL org.opencontainers.image.source="https://github.com/ComputeStacks/cs-docker-pma"
+LABEL org.opencontainers.image.url="https://github.com/ComputeStacks/cs-docker-pma"
 LABEL org.opencontainers.image.title="phpMyAdmin"
 
 ENV PMA_VERSION 5.2.0
