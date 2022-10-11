@@ -1,4 +1,4 @@
-FROM cr.cmptstks.com/cs-public/images/php:7.4-litespeed
+FROM cscr.cc/cs-public/images/php:7.4-litespeed
 
 LABEL maintainer="ComputeStacks <hello@computestacks.com>"
 LABEL org.opencontainers.image.authors="https://computestacks.com"
@@ -6,8 +6,8 @@ LABEL org.opencontainers.image.source="https://git.cmptstks.com/cs-public/images
 LABEL org.opencontainers.image.url="https://git.cmptstks.com/cs-public/images/phpmyadmin/"
 LABEL org.opencontainers.image.title="phpMyAdmin"
 
-ENV PMA_VERSION 5.1.3
-ENV PMA_HASH ac68dedf02f94b85138d6ac91cd21389b819c506767004883b52dabdf9b576df
+ENV PMA_VERSION 5.2.0
+ENV PMA_HASH e1d373e720ed402087ed5691b7a1935eea39af30eac66a58e6a791e648167b06
 
 COPY init_pma.rb /usr/local/bin/
 COPY 51-pma-startup.sh /etc/my_init.d/
