@@ -10,6 +10,12 @@ on:
   pull_request:
     branches: [ "main" ]
 
+env:
+  GH_REPO: '${{ github.repository }}'
+
+run: |
+  echo "GH_REPO_LC=${GH_REPO,,}" >> ${GITHUB_ENV}
+
 jobs:
   build:
 
@@ -49,7 +55,7 @@ jobs:
           tags: |
             cmptstks/phpmyadmin:v2
             cmptstks/phpmyadmin:latest
-            ghcr.io/${{ github.repository.lowercase }}:v2
-            ghcr.io/${{ github.repository.lowercase }}:latest
+            ghcr.io/${{ GH_REPO_LC }}:v2
+            ghcr.io/${{ GH_REPO_LC }}:latest
           cache-from: type=gha
           cache-to: type=gha,mode=max
