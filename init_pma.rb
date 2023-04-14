@@ -17,9 +17,8 @@ begin
 
   pma_conf = <<-EOF
 <?php
-$cfg['blowfish_secret'] = '<%= SecureRandom.urlsafe_base64(32) %>';
+$cfg['blowfish_secret'] = '<%= SecureRandom.urlsafe_base64(24) %>';
 $cfg['ShowChgPassword'] = false;
-$cfg['ZeroConf'] = false;
 $i = 0;
 <% metadata['services'].each do |service| -%>
 <% next if service.dig('image','role').nil? -%>
