@@ -14,8 +14,7 @@ if [ -f "/var/www/html/default/config.sample.inc.php" ]; then
   rm /var/www/html/default/config.sample.inc.php
 fi
 
-if [ ! -f "/var/www/html/default/.htaccess" ]; then
-  echo "SetEnvIf X-Forwarded-Proto \"https\" HTTPS=on" > /var/www/html/default/.htaccess
-fi
+# Make sure HTTPS is always used
+sed -i 's/fastcgi_param HTTPS $fcgi_https;/fastcgi_param HTTPS on;/g' /etc/nginx/sites-enabled/default     
 
 /usr/bin/ruby /usr/local/bin/init_pma.rb
